@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load extras %}
+{% block content %}
+    <div>
+
+        <h3 style="margin-top: 25px">{{ t }}</h3>
+
+        <div>
+            {% for p in g_list %}
+                {% product p %}
+            {% endfor %}
+            <div style="clear: both"></div>
+        </div>
+        {% include 'include/pagination.html' %}
+    </div>
+{% endblock %}

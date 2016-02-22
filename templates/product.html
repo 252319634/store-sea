@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block cssjs %}
+
+    <link rel="stylesheet" href="{% static 'css/ShopShow.css' %}" type="text/css"/>
+    <script src="{% static 'js/MagicZoom.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/product.js' %}" type="text/javascript"></script>
+
+{% endblock cssjs %}
+{% load staticfiles %}
+{% load extras %}
+{% block content %}
+
+    <div>
+        {#多图片浏览---------------开始#}
+        <div style="float: left">
+
+            <div id="tsShopContainer">
+                <div id="tsImgS" >
+                    <a href="{{ MEDIA_URL }}{{ p.image }}" title="Images" class="MagicZoom" id="MagicZoom">
+                        <img width="295" height="295" src="{{ MEDIA_URL }}{{ p.image }}"/>
+                    </a>
+                </div>
+                <div id="tsPicContainer">
+                    <div id="tsImgSArrL" onclick="tsScrollArrLeft()"></div>
+                    <div id="tsImgSCon">
+                        <ul>
+                            <li onclick="showPic(0)" rel="MagicZoom" class="tsSelectImg">
+                                <img height="42" width="42" src="{{ MEDIA_URL }}{{ p.image }}"
+                                     tsImgS="{{ MEDIA_URL }}{{ p.image }}"/>
+                            </li>
+                            {% for sku in p.goodsku_set.all %}
+                                <li onclick="showPic({{ forloop.counter }})" rel="MagicZoom">
+                                    <img height="42" width="42" src="{{ MEDIA_URL }}{{ sku.image }}"
+                                         tsImgS="{{ MEDIA_URL }}{{ sku.image }}"/>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div id="tsImgSArrR" onclick="tsScrollArrRight()"></div>
+                </div>
+                <img class="MagicZoomLoading" width="16" height="16" src="{% static 'img/loading.gif' %}"
+                     alt="Loading..."/>
+            </div>
+            <script src="{% static 'js/ShopShow.js' %}"></script>
+        </div>
+        {#多图片浏览---------------结束#}
+
+        <div id="product_div">
+            <div class="pname">{{ p.name }}</div>
+{#            <div class="pdesc"><span>{{ p.desc }}</span></div>#}
+            <div>{% for t in p.tag.all %}<em>{{ t.name }}</em>{% endfor %}</div>
+            <div class="price">
+                <div>
+                    <span>价　格:</span>
+                    <strong style="text-decoration:line-through"><em>¥</em><em>
+                        {{ p.prices }}
+                    </em></strong>
+                </div>
+                <div>
+                    <span>优惠价:</span>
+                    <strong><em>¥</em><em id="new_price">{{ p.prices }}</em></strong>
+                </div>
+            </div>
+            <div>
+                <form action="{% url 'cart' %}" method="post">
+                    {% csrf_token %}
+                    <div>尺码颜色:
+                        {% for sku in p.goodsku_set.all %}
+                            {% if forloop.first %}
+                                <input class="sc" type="radio" name="sku_id" value="{{ sku.id }}"
+                                       price="{{ sku.new_price }}"
+                                       num="{{ sku.num }}" onchange="select_sku(this)" checked/>{{ sku }}
+                            {% else %}
+                                <input class="sc" type="radio" name="sku_id" value="{{ sku.id }}"
+                                       price="{{ sku.new_price }}"
+                                       num="{{ sku.num }}" onchange="select_sku(this)"/>{{ sku }}
+                            {% endif %}
+                        {% endfor %}</div>
+
+                    <div>
+                        数量:
+                        <input type="button" style="width: 20px" onclick="sub_num()" value="-">
+                        <input id="num" name="num" type="text" value="1" size="3"/>
+                        <input type="button" style="width: 20px" onclick="add_num()" value="+">
+                        <span>(库存:<span id="num_text">{{ p.nums }}</span>件)</span>
+                    </div>
+                    <input type="submit" value="加入购物车"/>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div style="clear: both"></div>
+    <div>
+    <ul id="pattr"><li>商品分类:{{ p.category }}</li><li>商品品牌:{{ p.brand }}</li><li>商品总销量:{{ p.sales }}</li>{% for a in p.attrvalue.all %}<li>{{ a.attr.name }}:{{ a.name }}</li>{% endfor %}
+    </ul>
+</div>
+
+
+    <hr/>
+
+    <div>
+        {% autoescape off %}{{ p.details }}{% endautoescape %}
+    </div>
+
+    <div style="clear: both"></div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% load staticfiles %}
+{% block cssjs %}
+
+    <link href="{% static 'css/jquery.slideBox.css' %}" rel="stylesheet" type="text/css"/>
+    <script src="{% static 'js/jquery.slideBox.js' %}" type="text/javascript"></script>
+    <script>
+        jQuery(function ($) {
+            $('#slide_div').slideBox({
+                duration: 0.3,//滚动持续时间，单位：秒
+                easing: 'linear',//swing,linear//滚动特效//垂直滚动和水平滚动
+                delay: 5,//滚动延迟时间，单位：秒
+                hideClickBar: false,//不自动隐藏点选按键
+                clickBarRadius: 0
+            });
+        });
+    </script>
+{% endblock cssjs %}
+<div id="slide_div" class="slideBox" style="z-index:1;position: relative;">
+    <ul class="items">
+        {% for ad in ADS %}
+        <li><a href="{% url 'product'  %}?pid={{ ad.good.id }}" title=""><img src="{{ MEDIA_URL }}{{ ad.img }}" style="width: 980px"></a></li>
+        {% endfor %}
+    </ul>
+</div>
+

@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load extras %}
+{% block content %}
+    <br/>
+    <style>
+        .selling_record {
+            width: 980px;
+        }
+
+        .selling_record span {
+            font-weight: 600;
+        }
+
+        .selling_record tr {
+            height: 25px;
+        }
+
+        .selling_record td {
+            padding: 0 10px;
+            border: solid 1px #cccccc;
+        }
+
+        #recipients label {
+            margin: 5px 10px;
+            width: 70px;
+        }
+
+        #recipients #id_address {
+            width: 659px;
+        }
+    </style>
+    <form id='recipients' action="" method="post">
+
+        <h4>收货信息:</h4>
+        {% csrf_token %}
+        <label for="id_recipients">收件人:</label>{{ addressform.recipients }}
+        <label for="id_qq">QQ号码:</label>{{ addressform.qq }}
+        <label for="id_tel">手机号码:</label>{{ addressform.tel }}
+        <br/>
+        <label for="id_address">地址:</label>{{ addressform.address }}
+        <input type="submit" value="保存">
+    </form>
+    <div>
+        <h4>浏览记录:</h4>
+        {% for pid in view_history %}
+            {% history pid %}
+        {% endfor %}
+    </div>
+    <div style="clear: both"></div>
+    <div>
+        <h4>购物记录:</h4>
+        {% for o in g_list %}
+            <table class="selling_record">
+
+                <tr style="background-color: #eeeeee">
+                    <td colspan="4"><span>订单号:</span>{{ o.orderid }}</td>
+                </tr>
+                <tr>
+                    <td colspan="4"><span>时间:</span>{{ o.time }}</td>
+                </tr>
+                <tr>
+                    <td colspan="4"><span>收货地址:</span>{{ o.address }}</td>
+                </tr>
+
+                <tr>
+                    <td width="600px"><span>商品</span></td>
+                    <td width="200px"><span>数量</span></td>
+                    <td width="200px"><span>单价</span></td>
+                    <td width="200px"><span>小计</span></td>
+                </tr>
+                {% for s in selling %}
+                    {% if s.order.pk == o.pk %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'product' %}?pid={{ s.goodsku.good.pk }}"><img
+                                        src="{{ MEDIA_URL }}{{ s.goodsku.image }}" alt=""
+                                        style="width: 50px;height: 50px;float: left">{{ s.goodsku.good }} {{ s.goodsku }}
+                                </a>
+                            </td>
+                            <td>{{ s.count }}</td>
+                            <td>{{ s.price }}</td>
+                            <td>{{ s.total_price }}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+                <tr>
+                    <td colspan="4"><span>总价:</span>{{ o.total_price }}</td>
+                </tr>
+            </table>
+            <br/>
+        {% endfor %}
+
+
+        {% include 'include/pagination.html' %}
+
+    </div>
+{% endblock %}

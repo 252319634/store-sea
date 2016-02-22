@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load extras %}
+{% block content %}
+
+    <div id="search_div" style="border: solid 1px #cccccc;padding:5px">
+        <div>
+            <span style="font-size: 20px">已选条件:</span>
+            {#        {% print request.session.cat %}#}
+            {% if request.session.category %}
+                <a href="{% url 'search' %}?act=sub&item=category"><span>{{ request.session.category.name }}x</span></a>
+            {% endif %}
+            {% if request.session.brand %}
+                <a href="{% url 'search' %}?act=sub&item=brand"><span>{{ request.session.brand.name }}x</span></a>
+            {% endif %}
+            {% if request.session.tag %}
+                <a href="{% url 'search' %}?act=sub&item=tag"><span>{{ request.session.tag.name }}x</span></a>
+            {% endif %}
+            {#            <a href="#">品牌：泰芝郎</a>#}
+            {#            <a href="#">材质：棉</a>#}
+            <hr style="margin: 8px"/>
+        </div>
+        <div>
+            <span style="font-size: 20px">可选条件:</span>
+
+            {% if not request.session.category %}
+                <div>
+                    <span style="font-size: 18px">分类：</span>
+                    {% for cat in category %}
+                        <a href="{% url 'search' %}?act=add&item=category&id={{ cat.id }}"><span>{{ cat }}</span></a>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% if not request.session.brand %}
+                <div>
+                    <span style="font-size: 18px">品牌：</span>
+                    {% for b in brand %}
+                        <a href="{% url 'search' %}?act=add&item=brand&id={{ b.id }}"><span>{{ b }}</span></a>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% if not request.session.tag %}
+                <div>
+                    <span style="font-size: 18px">热点：</span>
+                    {% for t in tag %}
+                        <a href="{% url 'search' %}?act=add&item=tag&id={{ t.id }}"><span>{{ t }}</span></a>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <hr style="margin: 8px"/>
+        </div>
+        <div>
+            <form style="float: left" name="input" action="" method="get">
+                关键词: <input type="text" name="search_keys" value="{{ request.session.search_keys }}">
+                <input type="submit" value="搜索">
+            </form>
+            <form style="float: left" name="input" action="" method="get">
+                <input type="text" name="search_keys" value="-" hidden="hidden">
+                <input type="submit" value="清除">
+            </form>
+            <div style="clear: both"></div>
+        </div>
+    </div>
+    <div>
+        <div>
+            <h3>符合条件的商品:共 {{ g_list.paginator.count }} 件</h3>
+
+            <div>
+                {% for p in g_list %}
+                    {% product p %}
+                {% endfor %}
+                <div style="clear: both"></div>
+            </div>
+            {% include 'include/pagination.html' %}
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,105 @@
+{% load staticfiles %}
+
+<div>
+    <div>
+        <div style="float:left;"><h1><a href="{% url 'index' %}" style="text-decoration: none">{{ setting.STORE_NAME }}</a></h1></div>
+        <div style="float:right; margin: 30px; font-size: 20px">
+            {#        {% if user.is_anonymous %}#}
+            {#        是否是匿名用户#}
+            {% if user.is_authenticated %}
+                {#            是否是登录用户#}
+                <a href="{% url 'user' %}">{{ user }}</a>
+                <a href="{% url 'cart' %}">购物车</a>
+                <a href="{% url 'logout' %}">退出</a>
+
+            {% else %}
+                <a href="{% url 'login' %}"  >登录</a>
+                <a href="{% url 'register' %}">注册</a>
+            {% endif %}
+
+        </div>
+
+    </div>
+    <div style="clear: both"></div>
+    <div class="mynav">
+        <ul>
+            <li><a href="{% url 'index' %}">首页</a></li>
+            <li id="nav-man"><a href="{% url 'man' %}">男装</a></li>
+            <li id="nav-woman"><a href="{% url 'woman' %}">女装</a></li>
+            <li><a href="{% url 'search' %}">搜索</a></li>
+        </ul>
+        <div id="nav-man-contents">
+            <div class="contents_row"><span>分类</span>
+                {% for cat in CATEGORY %}
+                    {% if cat.sex == 1 %}
+                        <li><a href="{% url 'category' %}?cid={{ cat.id }}">{{ cat.name }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="contents_row"><span>品牌</span>
+                {% for b in BRAND_MAN %}
+                    <li><a href="{% url 'brand' %}?bid={{ b.id }}">{{ b.name }}</a></li>
+                {% endfor %}
+            </div>
+        </div>
+        <div id="nav-woman-contents">
+            <div class="contents_row"><span>分类</span>
+                {% for cat in CATEGORY %}
+                    {% if cat.sex == 0 %}
+                        <li><a href="{% url 'category' %}?cid={{ cat.id }}">{{ cat.name }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="contents_row"><span>品牌</span>
+                {% for b in BRAND_WOMAN %}
+                    <li><a href="{% url 'brand' %}?bid={{ b.id }}">{{ b.name }}</a></li>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {#    <ul class="nav nav-tabs">#}
+    {#        <li role="presentation" class="active "><a href="{% url 'index' %}">首页</a></li>#}
+    {#        <li role="presentation">#}
+    {#            <a href="#" class="dropdown-toggle" data-toggle="dropdown"#}
+    {#               role="button" aria-haspopup="true" aria-expanded="true">男装<span#}
+    {#                    class="caret"></span></a>#}
+    {#            <ul class="dropdown-menu">#}
+    {#                <li><a href="{% url 'man' %}">所有男装</a></li>#}
+    {#                <li>分类</li>#}
+    {#                {% for cat in CATEGORY %}#}
+    {#                    {% if cat.sex == 1 %}#}
+    {#                        <li><a href="{% url 'category' %}?cid={{ cat.id }}">{{ cat.name }}</a></li>#}
+    {#                    {% endif %}#}
+    {#                {% endfor %}#}
+    {#                <li>品牌</li>#}
+    {#                {% for b in BRAND_MAN %}#}
+    {#                    <li><a href="{% url 'brand' %}?bid={{ b.id }}">{{ b.name }}</a></li>#}
+    {#                {% endfor %}#}
+    {#            </ul>#}
+    {#        </li>#}
+    {#        <li role="presentation" id="li_woman" class="dropdown">#}
+    {#            <a href="#" class="dropdown-toggle"#}
+    {#               data-toggle="dropdown" href="#"#}
+    {#               role="button" aria-haspopup="true"#}
+    {#               aria-expanded="false">女装<span#}
+    {#                    class="caret"></span></a>#}
+    {#            <ul class="dropdown-menu">#}
+    {#                <li><a href="{% url 'woman' %}">所有女装</a></li>#}
+    {#                <li>分类</li>#}
+    {#                {% for cat in CATEGORY %}#}
+    {#                    {% if cat.sex == 0 %}#}
+    {#                        <li><a href="{% url 'category' %}?cid={{ cat.id }}">{{ cat.name }}</a></li>#}
+    {#                    {% endif %}#}
+    {#                {% endfor %}#}
+    {#                <li>品牌</li>#}
+    {#                {% for b in BRAND_WOMAN %}#}
+    {#                    <li><a href="{% url 'brand' %}?bid={{ b.id }}">{{ b.name }}</a></li>#}
+    {#                {% endfor %}#}
+    {#            </ul>#}
+    {#        </li>#}
+    {#        <li role="presentation"><a href="{% url 'search' %}">搜索</a></li>#}
+    {#    </ul>#}
+</div>
+<div style="clear: both;"></div>
+
+

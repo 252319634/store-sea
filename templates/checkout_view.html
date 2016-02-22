@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block cssjs %}
+{% endblock cssjs %}
+{% load staticfiles %}
+{% load extras %}
+{% block content %}
+    <style>
+        #cart_checkout {
+            width: 980px;
+        }
+
+        #cart_checkout a {
+            text-decoration: none;
+        }
+
+        #cart_checkout th {
+            padding: 8px;
+            border: solid 1px #bbbbbb;
+            background-color: #eeeeee;
+        }
+
+        #cart_checkout td {
+            padding: 5px;
+            border: solid 1px #dddddd;
+        }
+
+        #address {
+            font-size: 16px;
+
+            margin: 15px 0;
+        }
+
+        #total_price {
+            font-size: 16px;
+        }
+    </style>
+    <div>
+        <h3>收银台</h3>
+        {% if cart %}
+            <table id="cart_checkout">
+                <tr>
+                    <th width="200">商品</th>
+                    <th width="80">尺寸颜色</th>
+                    <th width="80">数量</th>
+                    <th width="80">价格</th>
+                    <th width="80">小计</th>
+                </tr>
+                {% for item in cart %}
+                    <tr>
+                        <td><a href="{% url 'product' %}?pid={{ item.goodsku.good.id }}">
+                            <img src="{{ MEDIA_URL }}{{ item.goodsku.image }}" alt="" style="width: 50px;height: 50px;float: left">
+                            {{ item.goodsku.good }}{{ item.goodsku }}</a>
+                        </td>
+                        <td>{{ item.goodsku }}</td>
+                        <td>{{ item.count }}</td>
+                        <td>{{ item.goodsku.new_price }}元</td>
+                        <td>{{ item.sum_price }}元</td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+            <div id="address">
+                <span>收货信息:{{ userprofile.recipients }},{{ userprofile.tel }},{{ userprofile.address }}</span></div>
+            <form action="" method="post">
+                {% csrf_token %}
+                <span id="total_price">总价：{{ cart.total_price }}元</span>
+                <input type="submit" value="付款"/>
+            </form>
+
+        {% else %}
+            <h3>还没有需要结算的商品!</h3>
+        {% endif %}
+    </div>
+
+{% endblock %}

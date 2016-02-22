@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$/clothing/verify_gen.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/log" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/templates/error.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/templates/include/pagination.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/templates/login.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/templates/register.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/templates/user.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/项目说明.txt" charset="GBK" />
+  </component>
+</project>

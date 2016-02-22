@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load extras %}
+{% block content %}
+    {% include 'include/ad.html' %}
+    <hr/>
+
+    <div>
+        <h3>最新商品</h3>
+        <div>
+            {% for h in NEW %}
+                {% product h.id %}
+            {% endfor %}
+        <div style="clear: both"></div>
+        </div>
+    </div>
+
+{% endblock %}

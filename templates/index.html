@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load extras %}
+{% block content %}
+    {% include 'include/ad.html' %}
+    <hr/>
+
+    <div>
+        <h3>最新商品</h3>
+
+        <div>
+            {% for p in NEW %}
+                {% product p %}
+            {% endfor %}
+            <div style="clear: both"></div>
+        </div>
+    </div>
+    <hr/>
+    <div>
+        <h3>最热商品</h3>
+
+        <div>
+            {% for p in HOT %}
+                {% product p %}
+            {% endfor %}
+            <div style="clear: both"></div>
+        </div>
+    </div>
+    <hr/>
+    <div>
+        <h3>所有商品</h3>
+
+        <div>
+            {% for p in g_list %}
+                {% product p %}
+            {% endfor %}
+            <div style="clear: both"></div>
+        </div>
+        {% include 'include/pagination.html' %}
+    </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block cssjs %}
+{% endblock cssjs %}
+{% load staticfiles %}
+{% load extras %}
+{% block content %}
+
+    <div>
+        <h1>结算成功!</h1>
+        <a href="{% url 'index'%}">返回首页</a>
+        <a href="{% url 'user'%}">返回用户中心</a>
+    </div>
+
+{% endblock %}

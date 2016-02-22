@@ -1,0 +1,23 @@
+{#{% load extras %}#}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>{% block title %}欢迎光临!{% endblock %}</title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css"/>
+    <script src="{% static 'js/jquery-1.7.1.min.js'%} " type="text/javascript"></script>
+    <script src="{% static 'js/bootstrap.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/bootstrap-dropdown.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/header.js' %}" type="text/javascript"></script>
+    {% block cssjs %}{% endblock cssjs %}
+</head>
+<body>
+    <div id='main' >
+        {% include 'include/header.html' %}
+        {% block content %}{% endblock %}
+        {% include 'include/footer.html' %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{% load extras %}
+
+<a href="{% url 'product' %}?pid={{ p.id }}" target="_blank">
+    <div style="width: 300px; height:150px;margin: 10px; float: left">
+        <img src="{{ MEDIA_URL }}{{ p.image }}" alt="主图" style="width: 148px; height: 148px; float: left"/>
+
+        <div style="width:148px;height: 148px;padding: 0 5px;float: left">
+            <div style="width:148px;height: 125px;float: left;overflow: hidden">{{ p.name }}</div>
+            <div>¥{{ p.id|price }} <span
+                    style="color: #bbbbbb;font-size: smaller;font-weight:100">(销量:{{ p.sales }})</span>
+            </div>
+        </div>
+    </div>
+</a>

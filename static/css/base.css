@@ -1,0 +1,281 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+html, body {
+    font-family: "微软雅黑";
+
+}
+
+#main {
+    margin: 0 auto;
+    width: 980px;
+
+}
+
+/*分页效果*/
+#pagination {
+    float: right;
+    margin: 10px 0;
+}
+
+#pagination-flickr li {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    list-style: none; /* savers */
+    float: left;
+}
+
+#pagination-flickr a {
+    border: solid 1px #DDDDDD;
+    margin-right: 2px;
+}
+
+#pagination-flickr .previous-off, #pagination-flickr .next-off {
+    color: #666666;
+    display: block;
+    float: left;
+    font-weight: bold;
+    padding: 3px 4px;
+}
+
+#pagination-flickr .next a, #pagination-flickr .previous a {
+    font-weight: bold;
+    border: solid 1px #FFFFFF;
+}
+
+#pagination-flickr .active {
+    color: #ff0084;
+    font-weight: bold;
+    display: block;
+    float: left;
+    padding: 4px 6px;
+}
+
+#pagination-flickr a:link,
+#pagination-flickr a:visited {
+    color: #e33232;
+    display: block;
+    float: left;
+    padding: 3px 6px;
+    text-decoration: none;
+}
+
+#pagination-flickr a:hover {
+    border: solid 1px #000;
+    background: #e33232;
+    color: #FFF;
+    transition: all 0.5s
+}
+
+/*分页效果*/
+/*产品块效果*/
+.product_div {
+    border: solid 1px #cccccc;
+    margin: 10px;
+    display: inline-block;
+    width: 220px;
+    text-align: center;
+}
+
+.product_div:hover {
+    border: solid 1px red;
+    transition: all 1s;
+}
+
+.product_div img {
+    width: 218px;
+    height: 218px;
+    margin: 0 auto;
+}
+
+.product_div .pname {
+    width: 196px;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    text-align: left;
+    word-break: break-all;
+    float: left;
+}
+
+.product_div .price {
+    width: 218px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 5px;
+    text-align: left;
+    color: red;
+    font-weight: bold;
+}
+
+/*产品块效果*/
+/*导航开始*/
+.mynav a:hover {
+    color: red;
+    transition: color 0.5s;
+}
+
+.mynav {
+    border-bottom: #aeaeae solid 1px;
+    width: 980px;
+    height: 50px;
+    font-size: 20px;
+    position: relative;
+}
+
+.mynav > ul > li {
+    color: white;
+    height: 50px;
+    line-height: 50px;
+    margin: 0 20px;
+    float: left;
+    list-style: none;
+}
+
+.mynav > ul > li a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.mynav > ul > li a:hover {
+
+    color: red;
+    transition: color 0.5s;
+}
+
+#nav-man-contents {
+    overflow: hidden;
+    background-color: white;
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 100px;
+    width: 300px;
+    border: solid 1px #cccccc;
+    z-index: 999;
+    padding: 15px;
+
+}
+
+#nav-woman-contents {
+    overflow: hidden;
+    background-color: white;
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 177px;
+    width: 300px;
+    border: solid 1px #cccccc;
+    z-index: 999;
+    padding: 15px;
+
+}
+
+.contents_row {
+    list-style: none;
+    width: 50%;
+    float: left;
+    font-size: 15px;
+}
+
+.contents_row span {
+    display: inline-block;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/*导航结束*/
+/*登录开始*/
+#login_div {
+    float: left;
+    width: 500px;
+    height: 300px;
+    margin: 20px;
+}
+
+#login_div > form > div {
+    margin: 10px;
+}
+
+#login_div span {
+    display: inline-block;
+    width: 80px;
+}
+
+/*登录结束*/
+/*注册开始*/
+#register_div {
+    margin: 20px;
+}
+
+#register_div span {
+    display: inline-block;
+    width: 75px;
+}
+
+#register_div > div {
+    margin: 10px;
+}
+
+/*注册结束*/
+/*商品详情开始*/
+#product_div {
+    float: left;
+
+    position: relative;
+    left: 30px;
+    font-size: 20px;
+    width: 650px;
+}
+
+#product_div div {
+    margin: 15px 0;
+}
+
+#product_div .pname {
+    font-size: 25px;
+    height: 60px;
+
+}
+
+#product_div .pdesc {
+    font-size: 20px;
+}
+
+#product_div .price {
+    background-color: #f4f4f4;
+}
+
+#product_div .price strong {
+    color: rgb(255, 68, 0);
+}
+
+#pattr {
+    padding: 5px;
+    color: #494949;
+    font-size: 15px;
+    margin: 10px 0;
+    width: 980px;
+    border: solid 1px #dbdbdb;
+}
+
+#pattr li {
+    margin: 5px;
+    color: #808080;
+    display: inline-block;
+    width: 230px;
+}
+
+/*商品详情结束*/
+
+/*搜索开始*/
+#search_div > div {
+    margin: 8px;
+}
+
+/*搜索结束*/
