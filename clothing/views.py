@@ -439,8 +439,9 @@ def myuser(request):
     if request.method == 'GET':
         userprofile = UserProfile.objects.get(user=user)
         # 获得浏览记录
-        view_history = [int(x) for x in userprofile.view_history.split(',')]
-        view_history.reverse()
+        if userprofile.view_history:
+            view_history = [int(x) for x in userprofile.view_history.split(',')]
+            view_history.reverse()
         addressform = forms.AddressForm(instance=userprofile)
         order = Order.objects.filter(user=user)
         selling = Selling.objects.filter(order=order)
