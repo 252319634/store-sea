@@ -417,7 +417,7 @@ def mycheckout(request):
             orderid = str(now.year) + str(now.month) + str(now.day) + str(now.hour) + str(now.minute) + str(
                 now.second) + "u%s" % (user.pk)
             address = "%s %s %s" % (userprofile.recipients, userprofile.tel, userprofile.address)
-            order = Order(user=user, orderid=orderid, time=now, address=address)
+            order = Order(user=user, orderid=orderid, time_my=now, address=address)
             order.save()
             for i in cart:
                 selling = Selling(order=order, goodsku=i.goodsku, count=i.count, price=i.goodsku.new_price)
