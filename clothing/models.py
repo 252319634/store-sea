@@ -53,7 +53,7 @@ class Order(models.Model):
     """
     user = models.ForeignKey(User, verbose_name='用户')
     orderid = models.CharField(max_length=100, null=True, verbose_name='订单号')
-    time = models.DateTimeField(auto_now=True, null=True, verbose_name='销售时间')
+    time_my = models.DateTimeField(auto_now=True, null=True, verbose_name='销售时间')
     address = models.CharField(max_length=200, null=True, verbose_name='收货信息')
     total_price = models.FloatField(default=0.0, null=True, verbose_name='总金额')
 
@@ -129,7 +129,7 @@ class Category(models.Model):
     name = models.CharField(max_length=20, blank=False, verbose_name='商品分类')
     sex = models.SmallIntegerField(choices=((1, '男式'), (0, '女式')), null=False, default=1, blank=True, verbose_name='性别')
     # 男女式大类用sex来标识
-    index = models.SmallIntegerField(default=1, blank=False, verbose_name='排序')
+    index_my = models.SmallIntegerField(default=1, blank=False, verbose_name='排序')
     # 数字小的靠前
     attrvalue = models.ManyToManyField('AttrValue', verbose_name='细节')
 
@@ -144,7 +144,7 @@ class Category(models.Model):
 
 class Brand(models.Model):
     name = models.CharField(max_length=20, verbose_name='品牌')
-    index = models.SmallIntegerField(default=1, verbose_name='排序')
+    index_my = models.SmallIntegerField(default=1, verbose_name='排序')
 
     def __str__(self):
         return self.name
@@ -157,7 +157,7 @@ class Brand(models.Model):
 
 class Size(models.Model):
     name = models.CharField(max_length=20, verbose_name='尺寸')
-    index = models.IntegerField(default=1, verbose_name='排列顺序')
+    index_my = models.IntegerField(default=1, verbose_name='排列顺序')
 
     class Meta:
         verbose_name = '尺寸'
@@ -296,17 +296,17 @@ class Good(models.Model):
     """
     category = models.ForeignKey(Category, verbose_name='分类')
     brand = models.ForeignKey(Brand, verbose_name='品牌')
-    tag = models.ManyToManyField(Tag, blank=True, null=True, verbose_name='标签')
+    tag = models.ManyToManyField(Tag, blank=True, verbose_name='标签')
     name = models.CharField(max_length=100, verbose_name='名称')
     sex = models.SmallIntegerField(choices=((1, '男式'), (0, '女式')), null=False, default=1, blank=True, verbose_name='性别')
     attrvalue = models.ManyToManyField('AttrValue', verbose_name='属性')
-    desc = models.CharField(max_length=200, verbose_name='简介')
+    desc_my = models.CharField(max_length=200, verbose_name='简介')
     details = HTMLField(max_length=10000, verbose_name='详情')
     image = models.ImageField(upload_to='%Y%m', blank=True, null=True, verbose_name='主图')
     prices = models.CharField(max_length=20, default='0', verbose_name='价格')
     sales = models.IntegerField(default=0, verbose_name='销量')
     nums = models.IntegerField(default=0, verbose_name='库存')
-    view = models.IntegerField(default=0, null=True, verbose_name='浏览量')
+    view_my = models.IntegerField(default=0, null=True, verbose_name='浏览量')
     def _prices(self):
         """
         价格,sku的价格区间 : '2000-2999'
@@ -357,4 +357,4 @@ class Good(models.Model):
     class Meta:
         verbose_name = '商品'
         verbose_name_plural = '商品'
-        ordering = ['-view']
+        ordering = ['-view_my']
