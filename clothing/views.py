@@ -345,7 +345,7 @@ def mycart(request):
         cart = Cart.objects.filter(user=request.user, goodsku=goodsku)
         if not cart:
             cart = Cart(user=request.user, goodsku=goodsku, count=num)
-            if cart.count > goodsku.num:
+            if int(cart.count) > goodsku.num:
                 cart.count = cart.goodsku.num
             cart.save()
         else:
