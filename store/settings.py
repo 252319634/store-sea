@@ -2,8 +2,29 @@
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-
+import sae.const
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+from os import environ
+debug = not environ.get("APP_NAME", "")
+if debug:
+# LOCAL 本地调试用，便于导出数据库,根据本地MYSQL数据库填写下面参数
+    MYSQL_DB = 'todolist'
+    MYSQL_USER = 'root'
+    MYSQL_PASS = 'root'
+    MYSQL_HOST_M = '127.0.0.1'
+    MYSQL_HOST_S = '127.0.0.1'
+    MYSQL_PORT = '3306'
+else:
+# SAE
+    import sae.const
+    MYSQL_DB = sae.const.MYSQL_DB
+    MYSQL_USER = sae.const.MYSQL_USER
+    MYSQL_PASS = sae.const.MYSQL_PASS
+    MYSQL_HOST_M = sae.const.MYSQL_HOST
+    MYSQL_HOST_S = sae.const.MYSQL_HOST_S
+    MYSQL_PORT = sae.const.MYSQL_PORT
+
 
 AUTH_PROFILE_MODULE = 'djangoadmin.myadmin.UserProfile'
 
@@ -76,14 +97,23 @@ WSGI_APPLICATION = 'store.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': MYSQL_DB,
+        'USER': MYSQL_USER,
+        'PASSWORD': MYSQL_PASS,
+        'HOST': MYSQL_HOST_M,
+        'PORT': MYSQL_PORT,
     }
 }
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
@@ -100,7 +130,13 @@ USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
+# 修改上传时文件在内存中可以存放的最大size为10m
+FILE_UPLOAD_MAX_MEMORY_SIZE = 10485760
 
+# sae的本地文件系统是只读的，修改django的file storage backend为Storage
+DEFAULT_FILE_STORAGE = 'sae.ext.django.storage.backend.Storage'
+# 使用media这个bucket
+STORAGE_BUCKET_NAME = 'media'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 MEDIA_URL = '/media/'
