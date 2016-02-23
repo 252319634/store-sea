@@ -75,7 +75,7 @@ def history(pid):
     try:
         p = Good.objects.get(id=pid)
     except Exception:
-        pass
+        p=[]
     return {'p': p, 'MEDIA_URL': MEDIA_URL}
 
 # @register.inclusion_tag('include/product_detail.html')
