@@ -1,0 +1,10 @@
+name: store123
+version: 1
+
+libraries:
+- name: "django"
+  version: "1.8.5"                #注意前面有空格
+
+handlers:
+- url: /static
+  static_dir: static
