@@ -1,4 +1,4 @@
 import sae
-from vmaig_blog import wsgi
+from store import wsgi
 
 application = sae.create_wsgi_app(wsgi.application)
