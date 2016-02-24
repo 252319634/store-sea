@@ -37,7 +37,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 # 是否开启验证码
-VERIFY = False
+VERIFY = True
 # 商店名
 STORE_NAME = '衣服店'
 # Application definition
