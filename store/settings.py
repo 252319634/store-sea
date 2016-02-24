@@ -33,7 +33,7 @@ AUTH_PROFILE_MODULE = 'djangoadmin.myadmin.UserProfile'
 SECRET_KEY = '@8guj6tx@a%)b@7=0303y8lc7qpcq01$o0n!5=ck$dc9ou!=uv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 # 是否开启验证码
