@@ -28,3 +28,8 @@ django-tinymce (后台集成富文本编辑器)
   用户登录:验证用户名,密码,验证码(可在settings中配置VERIFY选项),登录后保持当前浏览页面不跳转
   用户注册:用户名,邮箱,密码,确认密码,验证码.注册后返回前一浏览页面 
   
+
+
+
+sae配置:
+config.yaml,index.wsgi,store/wsgi.py,store/setings.py

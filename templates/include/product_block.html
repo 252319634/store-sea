@@ -1,10 +1,14 @@
 {% load extras %}
 
-<a href="{% url 'product' %}?pid={{p.id}}" target="_blank">
-<div class="product_div">
-    <img src="{{ MEDIA_URL }}{{ p.image }}" alt="主图"/>
-    <div class="pname" >{{ p.name|slice:'18' }}</div>{% if p.name|length > 18 %}<div style="float: left">...</div>{% endif %}
-    {#slice 截取多少个字符; length 返回字符长度#}
-    <div style="clear: both"></div>
-    <div class="price" >¥{{ p.id|price }} <span style="color: #bbbbbb;font-size: smaller;font-weight:100">(销量:{{ p.sales }})</span></div>
-</div></a>
+<a href="{% url 'product' %}?pid={{ p.id }}" target="_blank">
+    <div class="product_div">
+        <img src="{{ MEDIA_URL }}{{ p.image }}" alt="主图"/>
+
+        <div class="pname">{{ p.name|slice:'18' }}</div>{% if p.name|length > 18 %}
+        <div style="float: left">...</div>{% endif %}
+        {#slice 截取多少个字符; length 返回字符长度#}
+        <div style="clear: both"></div>
+        <div class="price">¥{{ p.id|price }} <span
+                style="color: #bbbbbb;font-size: smaller;font-weight:100">(销量:{{ p.sales }})</span></div>
+    </div>
+</a>

@@ -80,6 +80,7 @@ html, body {
     display: inline-block;
     width: 220px;
     text-align: center;
+    float: left;
 }
 
 .product_div:hover {
