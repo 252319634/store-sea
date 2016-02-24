@@ -4,6 +4,8 @@ version: 1
 libraries:
 - name: "django"
   version: "1.8.5"                #注意前面有空格
+- name: "PIL"
+  version: "1.1.7"                #注意前面有空格
 
 handlers:
 - url: /static
