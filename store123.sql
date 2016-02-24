@@ -1,0 +1,137 @@
+--
+-- File generated with SQLiteStudio v3.0.6 on ÖÜÈý 2ÔÂ 24 05:22:51 2016
+--
+-- Text encoding used: GBK
+--
+PRAGMA foreign_keys = off;
+BEGIN TRANSACTION;
+
+-- Table: clothing_good_attrvalue
+CREATE TABLE "clothing_good_attrvalue" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "good_id" integer NOT NULL REFERENCES "clothing_good" ("id"), "attrvalue_id" integer NOT NULL REFERENCES "clothing_attrvalue" ("id"), UNIQUE ("good_id", "attrvalue_id"));
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (754, 12, 99);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (755, 12, 324);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (756, 12, 231);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (757, 12, 76);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (758, 12, 336);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (759, 12, 337);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (760, 12, 338);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (761, 12, 339);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (762, 12, 340);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (763, 12, 22);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (764, 12, 89);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (765, 12, 260);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (766, 12, 29);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (767, 12, 255);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (768, 11, 163);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (769, 11, 325);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (770, 11, 49);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (771, 11, 233);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (772, 11, 76);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (773, 11, 336);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (774, 11, 108);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (775, 11, 22);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (776, 11, 41);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (777, 11, 332);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (778, 11, 89);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (860, 14, 231);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (861, 14, 296);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (862, 14, 206);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (863, 14, 145);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (864, 14, 341);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (865, 14, 342);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (866, 14, 24);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (867, 14, 26);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (868, 14, 157);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (875, 15, 137);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (876, 15, 127);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (877, 15, 343);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (906, 16, 325);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (907, 16, 168);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (908, 16, 75);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (909, 16, 332);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (910, 16, 144);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (911, 16, 49);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (912, 16, 83);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (913, 16, 86);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (914, 16, 345);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (915, 16, 344);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (916, 16, 89);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (917, 16, 346);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (918, 16, 347);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (919, 16, 127);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (964, 17, 65);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (965, 17, 99);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (966, 17, 202);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (967, 17, 17);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (968, 17, 212);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (969, 17, 22);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (970, 17, 26);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (971, 17, 348);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (972, 17, 349);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (973, 17, 350);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (974, 17, 255);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (993, 18, 96);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (994, 18, 352);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (995, 18, 332);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (996, 18, 142);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (997, 18, 351);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (998, 18, 127);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1035, 19, 289);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1036, 19, 354);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1037, 19, 99);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1038, 19, 353);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1039, 19, 205);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1040, 19, 355);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1041, 19, 52);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1042, 19, 125);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1043, 19, 351);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1060, 20, 352);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1061, 20, 75);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1062, 20, 332);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1063, 20, 77);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1064, 20, 142);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1065, 20, 145);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1066, 20, 82);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1067, 20, 127);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1079, 21, 32);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1080, 21, 355);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1081, 21, 356);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1082, 21, 357);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1083, 21, 231);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1084, 21, 17);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1085, 21, 99);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1086, 21, 212);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1087, 21, 22);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1088, 21, 187);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1089, 21, 126);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1090, 10, 99);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1091, 10, 325);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1092, 10, 232);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1093, 10, 332);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1094, 10, 76);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1095, 10, 333);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1096, 10, 334);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1097, 10, 49);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1098, 10, 20);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1099, 10, 23);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1100, 10, 152);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1101, 10, 89);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1102, 13, 36);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1103, 13, 232);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1104, 13, 76);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1105, 13, 332);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1106, 13, 333);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1107, 13, 49);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1108, 13, 19);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1109, 13, 23);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1110, 13, 72);
+INSERT INTO clothing_good_attrvalue (id, good_id, attrvalue_id) VALUES (1111, 13, 89);
+
+-- Index: clothing_good_attrvalue_589eff59
+CREATE INDEX "clothing_good_attrvalue_589eff59" ON "clothing_good_attrvalue" ("good_id");
+
+-- Index: clothing_good_attrvalue_fd65cfa4
+CREATE INDEX "clothing_good_attrvalue_fd65cfa4" ON "clothing_good_attrvalue" ("attrvalue_id");
+
+COMMIT TRANSACTION;
+PRAGMA foreign_keys = on;
