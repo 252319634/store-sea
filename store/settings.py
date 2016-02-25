@@ -7,6 +7,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 try:
     # SAE环境
     import sae.const
+    DEBUG = False
     MYSQL_DB = sae.const.MYSQL_DB
     MYSQL_USER = sae.const.MYSQL_USER
     MYSQL_PASS = sae.const.MYSQL_PASS
@@ -15,6 +16,7 @@ try:
     MYSQL_PORT = sae.const.MYSQL_PORT
 except Exception:
     # LOCAL 本地调试用，便于导出数据库,根据本地MYSQL数据库填写下面参数
+    DEBUG = True
     MYSQL_DB = 'store'
     MYSQL_USER = 'root'
     MYSQL_PASS = 'root'
@@ -33,7 +35,7 @@ AUTH_PROFILE_MODULE = 'djangoadmin.myadmin.UserProfile'
 SECRET_KEY = '@8guj6tx@a%)b@7=0303y8lc7qpcq01$o0n!5=ck$dc9ou!=uv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+
 
 ALLOWED_HOSTS = ['*']
 # 是否开启验证码
